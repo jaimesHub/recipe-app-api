@@ -1,2 +1,108 @@
 # recipe-app-api
 Recipe API project
+
+## py-notes
+- Section 5: Project Setup
+    - Docker and Django
+        - Docker's `benefits`
+            - Consistent dev and prod environment
+            - Easier collaboration
+            - Capture all dependencies as code
+            - Easier cleanup
+            - Save a LOT of time
+        - `Drawbacks`
+            - VSCode unable to access interpreter Python
+            - More difficult to use intergrated features
+                - Linting tools
+                - Interactive debugger
+        - `Benefits` > Drawbacks
+        - `Configure` Docker
+            - Create a `Dockerfile`
+            - Lists `steps` for `creating` image
+                - Choose a base `image` (python)
+                - Install `dependencies`
+                - Setup users
+        - Docker Compose
+            - How our Docker image(s) should be used
+                - It defines how Docker images should be used to run out development server
+            - Define our `services`
+                - Name (eg: app)
+                - Port mapping
+                - Volume mappings
+        - Using Docker Compose
+            - Run all commands through Docker Compose
+                - `docker-compose run --rm app sh -c "python manage.py collectstatic"`
+            - Docker-compose `syntax`
+                - `docker-compose`: runs a Docker Compose command
+                - `run`: will start a specific container defined in config
+                - `--rm`: removes the container
+                - `app`: is the name of the service
+            - Command that runs on the container
+                - `sh -c`: passes in a shell command
+                - `*rest_string`: Command to run inside container
+
+    - Follow along: 
+        - Define Python `requirements.txt` file
+        - pypi
+        - Creating `Dockerfile` for project
+            - `FROM`
+                - find python image on `hub.docker.com`
+            - `LABEL`
+            - `ENV`
+            - `COPY`: local machine -> docker image
+            - `COPY`: local machine -> app/ inside the container
+            - `WORKDIR`
+                - is the working directory, it's the default directory that will commands are going to be run from when we run commands on our Docker image.
+                - run from the `app` working directory on the container
+            - `EXPOSE`
+            - `RUN`
+            - `ENV`
+                - specify the full path of venv
+            - `USER`
+                - who use in the container
+            - Recommendation: Using venv inside Docker images
+            - Don't run app using the `root` user
+            - Keep image is lightweight as possible
+        - add `.dockerignore`
+            - to exclude any files that Docker doesn't need to be concerned with
+        - building our image on recipe-app-api/
+            - command: `docker build .`
+            - if `error` then create a `app` directory
+    - Creating `docker-compose` configuration
+        - creating `docker-compose.yml`
+            - `version`
+            - `services`
+        - run command: `docker-compose build` (same as `docker build .`)
+    - Linting and Tests
+        - What is Linting?
+            - Tool to check code formatting
+            - Highlights errors, typos, formatting issues
+        - How handling Linting
+            - Install `flake8` package
+            - Run it through Docker Compose
+                - example: `docker-compose run --rm app sh -c "flake8"`
+                - Error while setting up "flake8" w docker-compose
+        - Testing
+            - Django test suite
+            - Setup tests per Django app
+            - Run tests through Docker-compose
+
+    - Configure flake8
+        - Creating `requirements.dev.txt`
+        - Update `docker-compose.yml`
+            - adding `args`
+        - Update `Dockerfile`
+            - adding `COPY` for `requirements.dev.txt`
+            - adding `ARG DEV=false`
+            - update `RUN`
+                - `if [$DEV="true"];...fi && \`
+        - Run: `docker-compose build`
+        - Add the configuration needed for our Lintin tool
+            - Adding `/app/.flake8`
+            - cmd: `docker-compose run --rm app sh -c "flake8"`
+                - error: `sh: flake8: not found`
+    - Create Django project
+        - `docker-compose run --rm app sh -c "django-admin startproject app ."`
+    - Run project with Docker Compose
+        - Start server: `docker-compose up`
+        - Stop server: `Ctrl + C`

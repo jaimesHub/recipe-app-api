@@ -41,6 +41,8 @@ class CommandTests(SimpleTestCase):
         # the patched_check object, the magic mock object that is replaced or that replaces check by patch, is going to be passed in as an argument.
         # then we can use that to customize the behavior.
         """Test waiting for database if it is ready."""
+        print("Starting::test_wait_for_db_ready")
+
         # this just says when we call check or when check is called inside our command, inside our test case
         patch_check.return_value = True
 
@@ -49,13 +51,15 @@ class CommandTests(SimpleTestCase):
 
         # check that this check method has been called so it will be patched
         # this basically ensures that the marked value here, the mocked object (core.management.commands.wait_for_db.Command.check), which is the check method inside our command, is called with these parameters.
-        patch_check.assert_called_once_with(database=["default"])
+        patch_check.assert_called_once_with(databases=["default"])
 
     @patch(
         "time.sleep"
     )  # the more you add on top, the more it adds to the end (as arguments) here.
     def test_wait_for_db_delay(self, patch_sleep, patch_check):
         """Test waiting for database when getting OperationalError."""
+
+        print("Starting::test_wait_for_db_delay")
 
         # this is how the mocking works when you want to raise an exception
         # it means we want it to actually raise some exceptions that would be raised if the database wasn't ready.
@@ -75,6 +79,6 @@ class CommandTests(SimpleTestCase):
         )  # after call w Exception error 5 times (side_effect)
 
         # to make sure that it is called with the correct values.
-        patch_check.assert_called_once_with(database=["default"])
+        patch_check.assert_called_with(databases=["default"])
 
         # the last thing we need to do for this test case is we need to mark the sleep method.

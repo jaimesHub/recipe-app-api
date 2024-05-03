@@ -112,3 +112,4 @@ Recipe API project
 
 - Section 9: Create User Model
     - [Link](https://github.com/jaimesHub/py-notes/tree/main/django/django-docker)
+    - [Commit 1: Create user model](https://github.com/jaimesHub/py-notes/commit/a2ffc018535486ed3bca5e8c12b8ba39c8ba1511)

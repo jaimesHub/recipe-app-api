@@ -116,3 +116,9 @@ Recipe API project
     - [Commit 2: Normalize email addresses](https://github.com/jaimesHub/recipe-app-api/commit/59cdd3afc9206d7fb75390157aea60abccc4e2f0)
     - [Commit 3: Require email input](https://github.com/jaimesHub/recipe-app-api/commit/76a37b75835ddd366bfd21ff221c9e66302a6a3e)
     - [Commit 4: Add supperuser support](https://github.com/jaimesHub/recipe-app-api/commit/18b6d5eba17803ecceb5b83e420fb89379c42f27)
+
+- Section 11: API Documentation
+    - [Link](https://github.com/jaimesHub/py-notes/tree/main/django/django-docker)
+    - Importance of API documentation
+    - Auto docs w DRF: https://github.com/jaimesHub/py-notes/commit/982395f68dca437f6a85cb17fc915a0ad1a691b7
+    - Install drf-spectacular: https://github.com/jaimesHub/py-notes/commit/84ff4b75525423905469b9d65a710a6ead25284a

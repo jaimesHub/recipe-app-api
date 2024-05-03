@@ -115,3 +115,4 @@ Recipe API project
     - [Commit 1: Create user model](https://github.com/jaimesHub/py-notes/commit/a2ffc018535486ed3bca5e8c12b8ba39c8ba1511)
     - [Commit 2: Normalize email addresses](https://github.com/jaimesHub/recipe-app-api/commit/59cdd3afc9206d7fb75390157aea60abccc4e2f0)
     - [Commit 3: Require email input](https://github.com/jaimesHub/recipe-app-api/commit/76a37b75835ddd366bfd21ff221c9e66302a6a3e)
+    - [Commit 4: Add supperuser support](https://github.com/jaimesHub/recipe-app-api/commit/18b6d5eba17803ecceb5b83e420fb89379c42f27)

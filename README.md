@@ -122,3 +122,4 @@ Recipe API project
     - Importance of API documentation
     - Auto docs w DRF: https://github.com/jaimesHub/py-notes/commit/982395f68dca437f6a85cb17fc915a0ad1a691b7
     - Install drf-spectacular: https://github.com/jaimesHub/py-notes/commit/84ff4b75525423905469b9d65a710a6ead25284a
+    - [Install and setup](https://github.com/jaimesHub/recipe-app-api/compare/main...api-document)

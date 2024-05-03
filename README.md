@@ -1,6 +1,9 @@
 # recipe-app-api
 Recipe API project
 
+## References
+- [django-docker](https://github.com/jaimesHub/py-notes/tree/main/django/django-docker/README.md)
+
 ## py-notes
 - Section 5: Project Setup
     - Docker and Django
@@ -41,7 +44,7 @@ Recipe API project
                 - `sh -c`: passes in a shell command
                 - `*rest_string`: Command to run inside container
 
-    - Follow along: 
+    - Follow along:
         - Define Python `requirements.txt` file
         - pypi
         - Creating `Dockerfile` for project
@@ -106,3 +109,6 @@ Recipe API project
     - Run project with Docker Compose
         - Start server: `docker-compose up`
         - Stop server: `Ctrl + C`
+
+- Section 9: Create User Model
+    - [Link](https://github.com/jaimesHub/py-notes/tree/main/django/django-docker)
